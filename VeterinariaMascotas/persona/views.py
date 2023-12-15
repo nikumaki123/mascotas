@@ -25,7 +25,7 @@ def lista_personas(request):
         return render(request, 'persona/lista_personas.html', {'personas': personas})
     else:
         # Redirige a donde desees si el usuario no está activo
-        return redirect('pagina_de_inactividad')  # Reemplaza 'pagina_de_inactividad' con el nombre de tu vista o URL
+        return redirect('persona/registro.html')  # Reemplaza 'pagina_de_inactividad' con el nombre de tu vista o URL
 
 @login_required
 def detalle_persona(request, pk):
