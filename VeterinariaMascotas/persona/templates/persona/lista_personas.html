@@ -1,0 +1,14 @@
+{% extends 'persona/base.html' %}
+{% block content %}
+<h1 class="page-header">Listado de dueños</h1>
+  {% for persona in personas %}
+  <div class="post">
+      <a title="Editar persona" class="btn btn-default" href="{% url 'persona_edit' pk=persona.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a title="Eliminar registro" class="btn btn-default" href="{% url 'persona_delete' pk=persona.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+      <h2><a href="{% url 'detalle_persona' pk=persona.pk %}">{{persona.nombre}} {{persona.apellido}}</a></h2>
+      <h2>• Teléfono: {{persona.telefono}}</h2>
+      <h2>• Dirección: {{persona.direccion}}</h2>
+      
+  </div>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+<head>
+  <title>Registrarse</title>
+    <link rel="stylesheet" href="{% static 'css/estilo23.css' %}">
+</head>
+<body>     
+<div class="register-container">
+    <div class="form-container">
+        <h2 class="register-heading">Registrarse</h2>
+        <form method="post" class="register-form">
+        {% csrf_token %}
+        <div class="form-field">
+            <label for="{{ form.username.id_for_label }}">Usuario:</label>
+            {{ form.username }}
+        </div>
+        <div class="form-field">
+            <label for="{{ form.password1.id_for_label }}">Contraseña:</label>
+            {{ form.password1 }}
+        </div>
+        <div class="password-requirements">
+            •Tu contraseña no puede ser similar al usuario.<br>
+            •Tu contraseña debe contener al menos un carácter especial.<br>
+            •Tu contraseña debe contener al menos un número.<br>
+            •Tu contraseña debe tener una longitud mínima de 8 caracteres.<br>
+        </div>
+        <div class="form-field">
+            <label for="{{ form.password2.id_for_label }}">Confirmar contraseña:</label>
+            {{ form.password2 }}
+            <p class="confirm-password-text">•Ingrese la misma contraseña para confirmar.</p>
+        </div>
+        <div class="form-field">
+            <label for="{{ form.rol.id_for_label }}">Rol:</label>
+            {{ form.rol }}
+        </div>
+        <button type="submit" class="register-button">Registrarse</button>
+        </form>
+    </div>
+</div>
+
+</body> 
+
+</html>

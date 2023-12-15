@@ -1,0 +1,14 @@
+{% extends 'persona/base.html' %}
+
+{% block content %}
+        <h1 class="page-header">Información Clientes</h1>
+        <div style="text-align: center; color: black; background-color: #359F4A; border-radius: 10px; padding: 5px; padding-left: 10px;" class="card-body">
+             <h2 class="card-title">{{persona.nombre}} {{persona.apellido}}</h2>
+        </div> 
+        <ul class="list-group list-group-flush">
+             <li class="list-group-item"><b>Teléfono:</b> {{persona.telefono}}</li>
+             <li class="list-group-item"><b>Dirección:</b> {{persona.direccion}}</li>
+             <li class="list-group-item"><b>Animales:</b> </li>
+        </ul>
+
+{% endblock %}

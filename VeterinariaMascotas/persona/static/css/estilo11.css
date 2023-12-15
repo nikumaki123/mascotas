@@ -1,0 +1,111 @@
+body{
+    background-color: #0197fa;
+    background-image: url("veterinaria.png");
+    background-size: 100%; /* Puedes ajustar el porcentaje según tus necesidades */
+    background-position: center center;
+}
+ 
+  .custom-container {
+    background-color: #3498dbba; /* Puedes cambiar el color azul a tu preferencia */
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .custom-container h2,
+  .custom-container p,
+  .custom-container a {
+    color: #fff; /* Cambia el color del texto según tu preferencia */
+  }
+
+  .content {
+    margin-top: 20px; /* Agrega margen superior al contenido dentro del contenedor principal */
+  }
+.headerCard {
+    text-align: center; 
+    color: rgb(255, 255, 255); 
+    background-color: #359F4A; 
+    border-radius: 10px; 
+    padding: 5px; 
+    padding-left: 10px;
+}
+.page-header {
+    background-color: #3277B4;
+    margin-top: 0;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    padding: 20px 20px 20px 40px;
+}
+.block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #4CAF50;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    color: #e6e0e0;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 25px;
+    background-color: #63ACEC;
+    padding: 2px;
+    padding-left: 10px;
+    border-radius: 5px;
+    
+}
+
+.post h2 a, .post h2 a:visited {
+    color: rgb(253, 253, 253);
+}
+
+.formulario {
+    padding: 10px;
+    border: 10px;
+    background-color: #cdebff;
+    border-radius: 10px;
+}
+
+.logo {
+    position: fixed;
+    top: 1px;
+    right: 10px;
+    width: 50px; /* ajusta el ancho según tus necesidades */
+    height: 50px; /* ajusta el alto según tus necesidades */
+    z-index: 1200; /* asegura que el logo esté en la parte superior */
+}

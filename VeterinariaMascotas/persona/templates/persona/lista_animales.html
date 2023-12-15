@@ -1,0 +1,19 @@
+{% extends 'persona/base.html' %}
+{% block content %}
+<h1 class="page-header">Listado de animales</h1>
+  {% for animal in animales %}
+  <div class="post">
+      <a class="btn btn-default" href="{% url 'animal_edit' pk=animal.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a title="Eliminar registro" class="btn btn-default" href="{% url 'animal_delete' pk=animal.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+      <h2><a href="{% url 'detalle_animal' pk=animal.pk %}">{{animal.nombreAnimal}}</a></h2>
+      {% if animal.imagen %}
+                <img src="{{ animal.imagen.url }}" alt="Imagen de {{ animal.nombreAnimal }}" width="100" height="100">
+            {% endif %}
+      <h2>• Fecha Nacimiento: {{animal.fechaNacimiento}}</h2>
+      <h2>• Raza: {{animal.raza}}</h2>
+      <h2>• Sexo: {{animal.sexo}}</h2>
+      <h2>• Peso: {{animal.peso}}</h2>
+      <h2>• Observaciones: {{animal.observaciones}}</h2>
+  </div>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "persona/base.html" %}
+{% load static %}
+{% block content %}
+    {% if form.errors %}
+        <p>Nombre o Contraseña no es valido. Intente nuevamete</p>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'css/estilo23.css' %}">
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+        <table>
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        </table>
+
+        <input class="btn btn-primary" type="submit" value="INGRESAR" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+    <div>
+        <a href="persona/registro" class="login-button">Registrarse</a>
+    </div>
+
+{% endblock %}

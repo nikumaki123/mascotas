@@ -1,0 +1,21 @@
+{% extends 'persona/base.html' %}
+
+{% block content %}
+        <h1 class="page-header">Información de consulta</h1>
+        <div style="text-align: center; color: black; background-color: #359F4A; border-radius: 10px; padding: 5px; padding-left: 10px;" class="card-body">
+                <h2 class="card-title">{{consulta.fechaConsulta}} - Animal: {{consulta.idAnimal}}</h2>
+        </div> 
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Síntomas:</b> {{consulta.sintomas}}</li>
+                <li class="list-group-item"><b>Observaciones:</b> {{consulta.observaciones}}</li>
+                <li class="list-group-item"><b>Diagnóstico:</b> {{consulta.diagnostico}}</li>
+                <li class="list-group-item"><b>Receta:</b>
+                     {% for medicina in consulta.receta.all %}
+                        <p>{{medicina.nombreMedicamento}}</p>
+                     {% endfor %}
+                </li>
+                
+        </ul>
+ 
+
+{% endblock %}

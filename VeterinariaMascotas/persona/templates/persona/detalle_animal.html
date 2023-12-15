@@ -1,0 +1,27 @@
+{% extends 'persona/base.html' %}
+
+{% block content %}
+        <h1 class="page-header">Información animales</h1>
+        <div class="card" style="width: 50rem;">
+          <div style="text-align: center; color: black; background-color: #359F4A; border-radius: 10px; padding: 5px; padding-left: 10px;" class="card-body">
+            <h2 class="card-title">{{animal.nombreAnimal}}</h2>
+            {% if animal.imagen %}
+                <img src="{{ animal.imagen.url }}" alt="Imagen de {{ animal.nombreAnimal }}">
+            {% endif %}
+            <h3 class="card-subtitle"><b>Tipo:</b> {{animal.idTipoAnimal}}.</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Dueño:</b> {{animal.idDueno}}</li>
+            <li class="list-group-item"><b>Fecha Nacimiento:</b> {{animal.fechaNacimiento}}</li>
+            <li class="list-group-item"><b>Raza:</b> {{animal.raza}}</li>
+            <li class="list-group-item"><b>Sexo:</b> {{animal.sexo}}</li>
+            <li class="list-group-item"><b>Peso:</b> {{animal.peso}}</li>
+            <li class="list-group-item"><b>Observaciones:</b> {{animal.observaciones}}</li>
+          </ul>
+        </div>
+
+                      
+ 
+                      
+
+{% endblock %}

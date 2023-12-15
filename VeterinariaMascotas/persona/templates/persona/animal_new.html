@@ -1,0 +1,13 @@
+{% extends 'persona/base.html' %}
+
+{% block content %}
+    <h2 class="page-header">Agregar animal</h2>
+    <div class="formulario">
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-info block">GUARDAR</button>
+            <br>
+            <br>
+        </form>
+    </div>
+{% endblock %}

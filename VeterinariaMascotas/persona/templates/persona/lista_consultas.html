@@ -1,0 +1,13 @@
+{% extends 'persona/base.html' %}
+{% block content %}
+<h1 class="page-header">Listado de consultas</h1>
+  {% for consulta in consultas %}
+  <div class="post">
+      <a class="btn btn-default" href="{% url 'consulta_edit' pk=consulta.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a title="Eliminar registro" class="btn btn-default" href="{% url 'consulta_delete' pk=consulta.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+      <h2><a href="{% url 'detalle_consulta' pk=consulta.pk %}">Consulta: {{consulta.idAnimal}}</a></h2>
+      <h2>• Fecha Consulta: {{consulta.fechaConsulta}}</h2>
+      <h2>• Observaciones: {{consulta.observaciones}}</h2>
+  </div>
+  {% endfor %}
+{% endblock %}

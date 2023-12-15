@@ -1,0 +1,91 @@
+/* Estilo para el contenedor principal */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #3498bd;
+}
+
+/* Estilo para el formulario */
+.form-container {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    background-color: rgba(40, 90, 148, 0.767);
+    
+}
+
+/* Estilo para el encabezado "Registrarse" */
+.register-heading {
+    text-align: center;
+    color: rgb(59, 60, 61); 
+}
+
+/* Estilo para los campos del formulario */
+.form-field {
+    margin-bottom: 15px;
+    color: rgb(0, 0, 0); 
+}
+
+/* Estilo para las sugerencias de contraseña */
+.password-requirements {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: rgb(0, 0, 0); 
+}
+
+/* Estilo para el texto de confirmación de contraseña */
+.confirm-password-text {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: rgb(0, 0, 0); 
+}
+
+/* Estilo para el botón de registro */
+.register-button {
+    background-color: #4CAF50;
+    color: rgb(24, 31, 30);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Añade estilos adicionales según tus necesidades */
+
+/* En tu archivo CSS (tu_estilo.css) */
+
+/* Estilo para el contenedor principal con imagen de fondo */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('gatuno.png'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta correcta de tu imagen */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Agrega estilos para el botón de registro */
+.login-button {
+    background-color: #6eadf1; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 5px 10px; /* Espaciado interno */
+    text-decoration: none; /* Quita la subrayado predeterminado de los enlaces */
+    border-radius: 10px; /* Bordes redondeados */
+    display: inline-block; /* Hace que el enlace se comporte como un bloque en línea */
+}
+
+/* Estilos adicionales al pasar el ratón sobre el botón */
+.login-button:hover {
+    background-color: #4095f0; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilos adicionales al hacer clic en el botón */
+.login-button:active {
+    background-color: #003468; /* Cambia el color de fondo al hacer clic */
+}
+
+/* Resto de los estilos... */
