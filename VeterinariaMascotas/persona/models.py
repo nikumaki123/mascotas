@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib import admin
 
 
-
-
 # Create your models here.
 class Persona(models.Model):
     nombre = models.CharField(max_length=50)
@@ -38,13 +36,7 @@ class Animal(models.Model):
     def __str__(self):
         return self.nombreAnimal
 
-class BlogPost(models.Model):
-    title = models.CharField(max_length=200)
-    content = models.TextField()
-    published_date = models.DateTimeField(auto_new_add=True)
-    pets_related = models.ManyToManyField(Animal, blank=True) 
-    def __str__(self):
-        return self.title
+
     
 class Medicina(models.Model):
     nombreMedicamento = models.CharField(max_length=50)
