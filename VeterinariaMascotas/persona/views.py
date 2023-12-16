@@ -5,6 +5,63 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User 
 from .forms import RegistrationForm
+from rest_framework.decorators import api_view, permission_classes 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
+
+
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.decorators import permission_classes, api_view
+from rest_framework.permissions import AllowAny
+
+from .models import MyUser
+from .serializers import MyUserSerializer
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def obtener_token(request):
+    username = request.data.get('username')
+    password = request.data.get('password')
+
+    if username is None or password is None:
+        return Response({'error': 'Se requieren los campos "username" y "password".'}, status=400)
+
+    try:
+        user = MyUser.objects.get(username=username)
+    except MyUser.DoesNotExist:
+        return Response({'error': 'Credenciales inválidas.'}, status=400)
+
+    if not user.check_password(password):
+        return Response({'error': 'Credenciales inválidas.'}, status=400)
+
+    # Generar tokens
+    refresh = RefreshToken.for_user(user)
+    access_token = str(refresh.access_token)
+
+    return Response({
+        'access_token': access_token,
+        'refresh_token': str(refresh)
+    })
+
+
+class MiVista(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        content = {'mensaje': 'Hola, este es un recurso protegido.'}
+        return Response(content)
+
+
+@permission_classes([IsAuthenticated]) # Añade la autenticación requerida
+@api_view(['GET', 'POST'])
+def posts_list(request):
+    if request.method == 'GET':
+        books = BlogPost.objects.all()
+        serializer = BlogPostSerializer(books, many=True)
+    return Response(serializer.data)
+
 
 
 # Create your views here.
