@@ -152,3 +152,4 @@ def consulta_delete(request, pk):
     consulta = get_object_or_404(Consulta, pk=pk)
     consulta.delete()
     return redirect('lista_consultas')
+
