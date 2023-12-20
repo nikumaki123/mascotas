@@ -5,6 +5,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User 
 from .forms import RegistrationForm
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from serializers import PersonaSerializer, AnimalSerializer, ConsultaSerializer 
+
 
 # Create your views here.
 def register(request):
@@ -153,3 +157,37 @@ def consulta_delete(request, pk):
     consulta.delete()
     return redirect('lista_consultas')
 
+
+@api_view(['GET', 'POST'])
+def personas(request):
+    if request.method == 'GET':
+        personas = Persona.objects.all()
+        serializer = PersonaSerializer(personas, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = PersonaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+
+# Vista para obtener detalles de una persona, actualizar o eliminar
+@api_view(['GET', 'PUT', 'DELETE'])
+def persona_detail(request, pk):
+    try:
+        persona = Persona.objects.get(pk=pk)
+    except Persona.DoesNotExist:
+        return Response(status=404)
+
+    if request.method == 'GET':
+        serializer = PersonaSerializer(persona)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = PersonaSerializer(persona, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+    elif request.method == 'DELETE':
+        persona.delete()
+        return Response(status=204)

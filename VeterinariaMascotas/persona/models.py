@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib import admin
-
+from rest_framework import serializers
+from .models import Persona, Animal, Consulta
 
 # Create your models here.
 class Persona(models.Model):
@@ -68,7 +69,20 @@ class ConsultaAdmin(admin.ModelAdmin):
 class MedicinaAdmin(admin.ModelAdmin):
     inlines = (MedicacionInLine,)
 
+class PersonaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Persona
+        fields = '__all__'
 
+class AnimalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Animal
+        fields = '__all__'
+
+class ConsultaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Consulta
+        fields = '__all__'
     
 
 
