@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from persona.models import Persona, Animal, Consulta, Medicina, Medicacion
 from .forms import PersonaForm, AnimalForm, ConsultaForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -7,7 +6,8 @@ from django.contrib.auth.models import User
 from .forms import RegistrationForm
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from serializers import PersonaSerializer, AnimalSerializer, ConsultaSerializer 
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Persona, Animal, Consulta, Medicina, Medicacion, PersonaSerializer, AnimalSerializer, ConsultaSerializer
 
 
 # Create your views here.

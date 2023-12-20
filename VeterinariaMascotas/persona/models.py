@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib import admin
 from rest_framework import serializers
-from .models import Persona, Animal, Consulta
 
 # Create your models here.
 class Persona(models.Model):
@@ -47,7 +46,7 @@ class Medicina(models.Model):
 
 
 class Consulta(models.Model):
-    idAnimal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    idAnimal = models.ForeignKey('Animal', on_delete=models.CASCADE)
     sintomas = models.TextField()
     observaciones = models.TextField()
     diagnostico = models.TextField()
@@ -56,8 +55,8 @@ class Consulta(models.Model):
 
 
 class Medicacion(models.Model):
-    medicina = models.ForeignKey(Medicina, on_delete=models.CASCADE)
-    consulta = models.ForeignKey(Consulta, on_delete=models.CASCADE)
+    medicina = models.ForeignKey('Medicina', on_delete=models.CASCADE)
+    consulta = models.ForeignKey('Consulta', on_delete=models.CASCADE)
 
 class MedicacionInLine(admin.TabularInline):
     model = Medicacion
